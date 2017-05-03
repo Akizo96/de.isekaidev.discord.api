@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package name="de.isekaidev.discord.api" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/package.xsd">
+    <packageinformation>
+        <packagename><![CDATA[Discord API]]></packagename>
+        <packagedescription language="de"><![CDATA[Fügt der WoltLab Suite™ die grundlegenden Discord API Schnittstellen zur verfügung]]></packagedescription>
+        <packagedescription language="en"><![CDATA[---]]></packagedescription>
+        <version>1.0.0 Beta 1</version>
+        <date>2017-05-02</date>
+    </packageinformation>
+
+    <authorinformation>
+        <author>Tobias 'Mythen' Klein</author>
+        <authorurl>https://www.IsekaiDev.de/</authorurl>
+    </authorinformation>
+
+    <requiredpackages>
+        <requiredpackage minversion="3.0.0 RC 1">com.woltlab.wcf</requiredpackage>
+    </requiredpackages>
+
+    <excludedpackages>
+        <excludedpackage version="3.1.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+        <excludedpackage version="1.0.0">re.ify.wsc.discord.api</excludedpackage>
+    </excludedpackages>
+
+    <instructions type="install">
+        <instruction type="file">tar/files.tar</instruction>
+        <instruction type="sql">sql/install.sql</instruction>
+    </instructions>
+</package>
