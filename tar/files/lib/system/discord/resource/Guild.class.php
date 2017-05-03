@@ -126,7 +126,7 @@ class Guild extends AbstractResponse {
      * @param string $type
      * @return array
      */
-    public function formatChannels($channels, $type = 'text') {
+    private function formatChannels($channels, $type = 'text') {
         foreach ($channels as $key => $channel) {
             if ($channel['type'] !== $type) {
                 unset($channels[$key]);
