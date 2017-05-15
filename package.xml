@@ -23,7 +23,9 @@
     </excludedpackages>
 
     <instructions type="install">
+        <instruction type="language" />
         <instruction type="file">tar/files.tar</instruction>
         <instruction type="sql">sql/install.sql</instruction>
+        <instruction type="option">xml/option.xml</instruction>
     </instructions>
 </package>

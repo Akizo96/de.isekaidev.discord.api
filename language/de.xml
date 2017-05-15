@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com https://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="de">
+    <category name="wcf.acp.option">
+        <item name="wcf.acp.option.category.general.discord"><![CDATA[Discord]]></item>
+        <item name="wcf.acp.option.discord_app_id"><![CDATA[Client ID]]></item>
+        <item name="wcf.acp.option.discord_app_id.description"><![CDATA[Ihre Discord App Daten können Sie jederzeit auf <a href="{@$__wcf->getPath()}acp/dereferrer.php?url={'https://discordapp.com/developers/applications/me'|rawurlencode}" class="externalURL">Discord</a> abrufen.]]></item>
+        <item name="wcf.acp.option.discord_app_secret"><![CDATA[Client Secret]]></item>
+        <item name="wcf.acp.option.discord_app_token"><![CDATA[Bot Token]]></item>
+    </category>
+</language>

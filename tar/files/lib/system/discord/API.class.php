@@ -101,6 +101,8 @@ class API {
 
         if ($this->authToken !== '' && $this->authType !== '') {
             $request->addHeader('authorization', $this->authType . ' ' . $this->authToken);
+        } elseif (DISCORD_APP_TOKEN !== '') {
+            $request->addHeader('authorization', $this->authType . ' ' . DISCORD_APP_TOKEN);
         }
 
         $request->execute();
