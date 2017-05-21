@@ -1,1 +1,1 @@
-ALTER TABLE wcf1_user ADD discordID VARCHAR(30) NULL;
+ALTER TABLE wcf1_user ADD discordID VARCHAR(64) NULL;
