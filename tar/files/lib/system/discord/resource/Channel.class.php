@@ -2,7 +2,6 @@
 
 namespace wcf\system\discord\resource;
 
-
 use wcf\system\discord\AbstractResponse;
 use wcf\system\discord\API;
 

@@ -2,6 +2,7 @@
 
 namespace wcf\system\discord;
 
+use wcf\util\JSON;
 use wcf\util\HTTPRequest;
 
 class API {
@@ -95,9 +96,10 @@ class API {
      * @return array
      */
     public function execute() {
-        $request = new HTTPRequest(static::API_URL . $this->uri, ['method' => $this->method], $this->params);
+        $request = new HTTPRequest(static::API_URL . $this->uri, ['method' => $this->method], JSON::encode($this->params));
 
         $request->addHeader('user-agent', 'DiscordBot (WoltLab Suite, v1.0.0)');
+        $request->addHeader('content-type', 'application/json');
 
         if ($this->authToken !== '' && $this->authType !== '') {
             $request->addHeader('authorization', $this->authType . ' ' . $this->authToken);

@@ -2,7 +2,6 @@
 
 namespace wcf\system\discord\resource;
 
-
 use wcf\data\user\User;
 use wcf\system\discord\AbstractResponse;
 use wcf\system\discord\API;
@@ -15,10 +14,10 @@ class Guild extends AbstractResponse {
      */
     private $guildID = null;
 
-    public function __construct($channelID) {
+    public function __construct($guildID) {
         parent::__construct();
 
-        $this->guildID = $channelID;
+        $this->guildID = $guildID;
     }
 
     /**
