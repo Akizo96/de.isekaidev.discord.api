@@ -4,7 +4,7 @@
         <packagename><![CDATA[Discord API]]></packagename>
         <packagedescription language="de"><![CDATA[Fügt der WoltLab Suite™ die grundlegenden Discord API Schnittstellen hinzu]]></packagedescription>
         <packagedescription language="en"><![CDATA[Adds the basic Discord API interfaces to the WoltLab Suite™]]></packagedescription>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
         <date>2017-05-29</date>
     </packageinformation>
 
@@ -23,9 +23,12 @@
     </excludedpackages>
 
     <instructions type="install">
-        <instruction type="language" />
+        <instruction type="language"/>
         <instruction type="file">tar/files.tar</instruction>
         <instruction type="sql">sql/install.sql</instruction>
         <instruction type="option">xml/option.xml</instruction>
+    </instructions>
+    <instructions type="update" fromversion="1.0.1">
+        <instruction type="file">tar/files.tar</instruction>
     </instructions>
 </package>

@@ -57,7 +57,7 @@ class Guild extends AbstractResponse {
      * https://discordapp.com/developers/docs/resources/guild#modify-guild-member
      *
      * @param \wcf\data\user\User|int $member
-     * @param array $data
+     * @param array                   $data
      * @return bool|null
      */
     public function modifyMember($member, $data) {
@@ -66,7 +66,7 @@ class Guild extends AbstractResponse {
                 return null;
             }
             $memberID = $member->discordID;
-        }else{
+        } else {
             $memberID = $member;
         }
 
@@ -75,9 +75,9 @@ class Guild extends AbstractResponse {
         $this->api->setParameter($data);
 
         $response = $this->api->execute();
-        if($response['statusCode'] === 204){
+        if ($response !== false && $response['statusCode'] === 204) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -85,37 +85,58 @@ class Guild extends AbstractResponse {
     /**
      * Get guild member bans
      *
-     * @return array
+     * @return array|bool
      */
     public function getBans() {
-        return API::formatDiscordArray($this->getBase('/bans'));
+        $response = $this->getBase('/bans');
+        if ($response !== false) {
+            return API::formatDiscordArray($response);
+        } else {
+            return false;
+        }
     }
 
     /**
      * Get guild roles
      *
-     * @return array
+     * @return array|bool
      */
     public function getRoles() {
-        return $this->formatRoles($this->getBase('/roles'));
+        $response = $this->getBase('/roles');
+        if ($response !== false) {
+            return $this->formatRoles($response);
+        } else {
+            return false;
+        }
     }
 
     /**
      * Get guild text channels
      *
-     * @return mixed
+     * @return mixed|bool
      */
     public function getTextChannels() {
-        return $this->formatChannels($this->getBase('/channels'));
+        $response = $this->getBase('/channels');
+        if ($response !== false) {
+            return $this->formatChannels($response);
+        } else {
+            return false;
+        }
     }
 
     /**
      * Get guild voice channels
      *
-     * @return array
+     * @return array|bool
      */
     public function getVoiceChannels() {
-        return $this->formatChannels($this->getBase('/channels'), 'voice');
+        $response = $this->getBase('/channels');
+        if ($response !== false) {
+            return $this->formatChannels($response, 'voice');
+        } else {
+            return false;
+        }
+
     }
 
     /**

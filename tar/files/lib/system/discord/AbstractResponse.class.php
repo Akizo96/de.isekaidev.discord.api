@@ -22,6 +22,10 @@ class AbstractResponse {
     protected function handleAPI() {
         $response = $this->api->execute();
 
-        return JSON::decode($response['body']);
+        if ($response !== false) {
+            return JSON::decode($response['body']);
+        } else {
+            return false;
+        }
     }
 }

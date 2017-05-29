@@ -2,6 +2,10 @@
 
 namespace wcf\system\discord;
 
+use wcf\system\exception\HTTPNotFoundException;
+use wcf\system\exception\HTTPServerErrorException;
+use wcf\system\exception\HTTPUnauthorizedException;
+use wcf\util\exception\HTTPException;
 use wcf\util\JSON;
 use wcf\util\HTTPRequest;
 
@@ -93,22 +97,27 @@ class API {
     }
 
     /**
-     * @return array
+     * @return array|bool
      */
     public function execute() {
-        $request = new HTTPRequest(static::API_URL . $this->uri, ['method' => $this->method], JSON::encode($this->params));
+        try {
 
-        $request->addHeader('user-agent', 'DiscordBot (WoltLab Suite, v1.0.0)');
-        $request->addHeader('content-type', 'application/json');
+            $request = new HTTPRequest(static::API_URL . $this->uri, ['method' => $this->method], JSON::encode($this->params));
 
-        if ($this->authToken !== '' && $this->authType !== '') {
-            $request->addHeader('authorization', $this->authType . ' ' . $this->authToken);
-        } elseif (DISCORD_APP_TOKEN !== '') {
-            $request->addHeader('authorization', $this->authType . ' ' . DISCORD_APP_TOKEN);
+            $request->addHeader('user-agent', 'DiscordBot (WoltLab Suite, v1.0.0)');
+            $request->addHeader('content-type', 'application/json');
+
+            if ($this->authToken !== '' && $this->authType !== '') {
+                $request->addHeader('authorization', $this->authType . ' ' . $this->authToken);
+            } elseif (DISCORD_APP_TOKEN !== '') {
+                $request->addHeader('authorization', $this->authType . ' ' . DISCORD_APP_TOKEN);
+            }
+
+            $request->execute();
+            return $request->getReply();
+        } catch (HTTPException|HTTPServerErrorException|HTTPUnauthorizedException|HTTPNotFoundException $exception) {
+            return false;
         }
-
-        $request->execute();
-        return $request->getReply();
     }
 
     /**
