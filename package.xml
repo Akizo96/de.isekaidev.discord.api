@@ -4,8 +4,8 @@
         <packagename><![CDATA[Discord API]]></packagename>
         <packagedescription language="de"><![CDATA[Fügt der WoltLab Suite™ die grundlegenden Discord API Schnittstellen hinzu]]></packagedescription>
         <packagedescription language="en"><![CDATA[Adds the basic Discord API interfaces to the WoltLab Suite™]]></packagedescription>
-        <version>1.0.0</version>
-        <date>2017-05-27</date>
+        <version>1.0.1</version>
+        <date>2017-05-29</date>
     </packageinformation>
 
     <authorinformation>

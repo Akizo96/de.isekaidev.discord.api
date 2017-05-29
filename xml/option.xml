@@ -2,21 +2,24 @@
 <data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/option.xsd">
     <import>
         <categories>
-            <category name="general.discord">
-                <parent>general</parent>
+            <category name="discord">
+                <parent/>
+            </category>
+            <category name="discord.general">
+                <parent>discord</parent>
             </category>
         </categories>
         <options>
             <option name="discord_app_id">
-                <categoryname>general.discord</categoryname>
+                <categoryname>discord.general</categoryname>
                 <optiontype>text</optiontype>
             </option>
             <option name="discord_app_secret">
-                <categoryname>general.discord</categoryname>
+                <categoryname>discord.general</categoryname>
                 <optiontype>password</optiontype>
             </option>
             <option name="discord_app_token">
-                <categoryname>general.discord</categoryname>
+                <categoryname>discord.general</categoryname>
                 <optiontype>password</optiontype>
             </option>
         </options>
