@@ -115,7 +115,13 @@ class API {
 
             $request->execute();
             return $request->getReply();
-        } catch (HTTPException|HTTPServerErrorException|HTTPUnauthorizedException|HTTPNotFoundException $exception) {
+        } catch (HTTPException $exception) {
+            return false;
+        } catch (HTTPServerErrorException $exception) {
+            return false;
+        } catch (HTTPUnauthorizedException $exception) {
+            return false;
+        } catch (HTTPNotFoundException $exception) {
             return false;
         }
     }
